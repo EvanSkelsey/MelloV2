@@ -5,30 +5,7 @@
     <string name="title_calibration">CALIBRATION</string>
     <string name="title_settings">SETTINGS</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-    <string name="sTextSmallLabel">Small</string>
-    <string name="sTextMediumLabel">Medium</string>
-    <string name="sTextModerateLabel">Moderate</string>
-    <string name="sTextLargeLabel">Large</string>
-    <string name="sTextExtraLargeLabel">Extra Large</string>
-
-    <!-- text size value-->
-    <string name="sTextSmallValue">15</string>
-    <string name="sTextMediumValue">17</string>
-    <string name="sTextModerateValue">20</string>
-    <string name="sTextLargeValue">23</string>
-    <string name="sTextExtraLargeValue">26</string>
-
-    <string name="textSizeKey" translatable="false">textSize</string>
-    <string name="textSizeLabel">Text Size</string>
-
-    <string name="switchKey">SwitchKey</string>
-    <string name="switchLabel">Night Mode</string>
-    <string name="switchON">Night Mode ON</string>
-    <string name="switchOFF">Night Mode OFF</string>
     <string name="notificationSwitchKey">Push Notifications</string>
     <string name="title_activity_splash">SplashActivity</string>
+
 </resources>

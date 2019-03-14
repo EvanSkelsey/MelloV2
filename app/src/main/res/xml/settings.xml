@@ -8,15 +8,18 @@
         android:layout="@layout/fragment_settings"/>
 
     <SwitchPreference
-        android:key="settings_notifications_50"
-        android:title="50%"/>
+        android:id="@+id/settings_switch_50"
+        android:key="switch_status_50"
+        android:title="50%" />
 
     <SwitchPreference
-        android:key="settings_notifications_80"
+        android:id="@+id/settings_switch_80"
+        android:key="switch_status_80"
         android:title="80%"/>
 
     <SwitchPreference
-        android:key="settings_notifications_100"
+        android:id="@+id/settings_switch_100"
+        android:key="switch_status_100"
         android:title="100%"/>
 
     <Preference
