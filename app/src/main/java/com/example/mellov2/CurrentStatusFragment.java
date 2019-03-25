@@ -36,38 +36,55 @@ public class CurrentStatusFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_current_status, container, false);
 
-        ImageView currentStatusImage = (ImageView) view.findViewById(R.id.current_status_drop_image);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        if (percentBladderFullness > 90) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_100);
-            notification_content = "Your bladder is at 100% fullness";
-            displayNotification(view);
-        } else if (percentBladderFullness > 80) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_90);
-        } else if (percentBladderFullness > 70) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_80);
-            notification_content = "Your bladder is at 80% fullness";
-            displayNotification(view);
-        } else if (percentBladderFullness > 60) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_70);
-        } else if (percentBladderFullness > 50) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_60);
-        } else if (percentBladderFullness > 40) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_50);
-            notification_content = "Your bladder is at 50% fullness";
-            displayNotification(view);
-        } else if (percentBladderFullness > 30) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_40);
-        } else if (percentBladderFullness > 20) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_30);
-        } else if (percentBladderFullness > 10) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_20);
-        } else if (percentBladderFullness > 5) {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_10);
-        } else {
-            currentStatusImage.setImageResource(R.drawable.current_status_drop_0);
+        boolean switch50Value = prefs.getBoolean("switch_status_50", true);
+        boolean switch80Value = prefs.getBoolean("switch_status_80", true);
+        boolean switch100Value = prefs.getBoolean("switch_status_100", true);
+
+        while(true) {
+            //fetch percentage from bladder
+
+            ImageView currentStatusImage = (ImageView) view.findViewById(R.id.current_status_drop_image);
+
+            if (percentBladderFullness > 90) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_100);
+                if (switch100Value == true) {
+                    notification_content = "Your bladder is at 100% fullness";
+                    displayNotification(view);
+                }
+            } else if (percentBladderFullness > 80) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_90);
+            } else if (percentBladderFullness > 70) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_80);
+                if (switch80Value == true) {
+                    notification_content = "Your bladder is at 80% fullness";
+                    displayNotification(view);
+                }
+            } else if (percentBladderFullness > 60) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_70);
+            } else if (percentBladderFullness > 50) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_60);
+            } else if (percentBladderFullness > 40) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_50);
+                if (switch50Value == true) {
+                    notification_content = "Your bladder is at 50% fullness";
+                    displayNotification(view);
+                }
+            } else if (percentBladderFullness > 30) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_40);
+            } else if (percentBladderFullness > 20) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_30);
+            } else if (percentBladderFullness > 10) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_20);
+            } else if (percentBladderFullness > 5) {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_10);
+            } else {
+                currentStatusImage.setImageResource(R.drawable.current_status_drop_0);
+            }
+            return view;
+
         }
-        return view;
 
     }
 

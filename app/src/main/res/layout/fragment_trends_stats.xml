@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/trendsStatsLayout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/header"
@@ -33,6 +34,8 @@
             android:id="@+id/graph"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"

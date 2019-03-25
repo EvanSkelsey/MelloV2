@@ -1,5 +1,6 @@
 package com.example.mellov2;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class TrendsStatsFragment extends Fragment {
 
     //=============================================
-
 
 
 
@@ -30,13 +31,30 @@ public class TrendsStatsFragment extends Fragment {
 
         GraphView graph = (GraphView) view.findViewById(R.id.graph);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
+        GridLabelRenderer gridLabel = graph.getGridLabelRenderer();
+        gridLabel.setHorizontalAxisTitle("Time");
+        gridLabel.setVerticalAxisTitle("% Bladder Fullness");
+
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(100);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(13);
+
+        //
+        DataPoint[] points = new DataPoint[13];
+        for (int i = 0; i < points.length; i++) {
+            points[i] = new DataPoint(i, 100*Math.random());
+        }
+
+        //
+
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+
+        series.setColor(Color.LTGRAY);
+        series.setThickness(8);
 
         graph.addSeries(series);
 

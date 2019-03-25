@@ -3,6 +3,7 @@ package com.example.mellov2;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.SwitchPreference;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,12 +21,19 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     //=============================================
 
-
     //=============================================
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        view.setBackgroundColor(getResources().getColor(R.color.white));
+        return view;
+    }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
-
     }
+
 }
